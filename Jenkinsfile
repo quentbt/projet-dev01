@@ -20,7 +20,7 @@ pipeline{
         )
       }
     }
-    stage('Build'){
+    stage('Build image docker'){
       steps{
         script {
           sh "docker build -t ${IMG_NAME} ."
@@ -29,12 +29,12 @@ pipeline{
       }
     }
 
-    stage('deploiement conteneur'){
+    stage('deploiement application '){
       steps{
         script {
-          sh "docker stop monapp || true"
-          sh "docker rm monapp || true"
+          sh "docker rm -f $(docker ps)"
           sh "docker run -d --name monapp --hostname monapp -p 8585:80 ${IMG_NAME}"
+          sh "docker exec -it monapp 'ifconfig'"
         }
       }
     }
