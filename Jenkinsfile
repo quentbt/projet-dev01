@@ -1,7 +1,7 @@
 pipeline{
   agent any
   environment{
-    IMG_NAME = 'quentin-nginx'
+    IMG_NAME = 'med-nginx'
     DOCKER_REPO = 'test'
   }
   
@@ -16,7 +16,7 @@ pipeline{
       steps{
         git (
           branch: 'main',
-          url: 'https://github.com/quentbt/test.git'
+          url: 'https://github.com/quentbt/projet-dev01.git'
         )
       }
     }
