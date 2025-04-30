@@ -1,7 +1,7 @@
 pipeline{
   agent any
   environment{
-    IMG_NAME = 'med-nginx'
+    IMG_NAME = 'quent-nginx'
     DOCKER_REPO = 'test'
   }
   
